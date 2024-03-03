@@ -3,7 +3,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-    background-color: #A0B2ED;
+    background-color: #313338;
 }
 
 a {
@@ -36,7 +36,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #5465A0;
-    background-color: #A0B2ED;
+    background-color: #313338;
     background-position: center;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -50,24 +50,24 @@ header .header-content {
 }
 
 header .header-content .header-content-inner h1 {
-    margin-top: 0;
+    margin-top: 20px;
     margin-bottom: 20px;
     font-size: 50px;
     font-weight: 600;
 }
 
 header .header-content .header-content-inner p {
-    margin-bottom: 50px;
-    font-size: 16px;
+    margin-bottom: 40px;
+    font-size: 18px;
     font-weight: 700;
     color: #768AC5;
 }
 
 header .header-content .header-content-inner b {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     font-size: 18px;
-    font-weight: 1000;
-    color: #5465A0;
+    font-weight: 700;
+    color: #cdd1df;
 }
 
 @media(min-width:768px) {
@@ -86,7 +86,8 @@ header .header-content .header-content-inner b {
     }
 
 	header .header-content .header-content-inner h1 {
-    	font-size: 100px;
+        margin-top: 20px;
+    	font-size: 60px;
 		}
 
     header .header-content .header-content-inner p {
@@ -430,3 +431,25 @@ img::-moz-selection {
 .bg-primary {
     background-color: #5465A0;
 }
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+  .avatar__991e2 {
+    width: 100%;
+    height: 100%;
+    grid-area: 1/1;
+    display: block;
+    -o-object-fit: cover;
+    object-fit: cover;
+    pointer-events: none
+  }
+  .pointerEvents__33f6a {
+    pointer-events: auto
+  }
+
+  
