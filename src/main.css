@@ -7,7 +7,7 @@ body {
 }
 
 a {
-    color: #5465A0;
+    color: #7289da;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -15,7 +15,7 @@ a {
 
 a:hover,
 a:focus {
-    color: black;
+    color: #313338;
 }
 
 p {
@@ -35,7 +35,7 @@ header {
     width: 100%;
     min-height: auto;
     text-align: center;
-    color: #5465A0;
+    color: #7289da;
     background-color: #313338;
     background-position: center;
     padding-top: 50px;
@@ -50,6 +50,7 @@ header .header-content {
 }
 
 header .header-content .header-content-inner h1 {
+    color: #7289da;
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 50px;
@@ -93,7 +94,7 @@ header .header-content .header-content-inner b {
     header .header-content .header-content-inner p {
         margin-right: auto;
         margin-left: auto;
-        max-width: 80%;
+        max-width: 100%;
         font-size: 18px;
     }
 }
@@ -103,12 +104,13 @@ header .header-content .header-content-inner b {
     margin-bottom: 20px;
 }
 
+
 .intro {
 	color: #fff;
-    background-color: #5465A0;
+    /*下半部BGColor*/
+    background-color: #7289da;
     padding: 70px 0;
     text-align: center;
-
 }
 
 .intro-body {
@@ -164,32 +166,6 @@ header .header-content .header-content-inner b {
     vertical-align: middle;
 }
 
-.page-footer {
-	text-align: center;
-	}
-
-.page-footer .contact {
-	padding: 100px 0;
-	background-color: #5465A0;
-	color: #fff;
-	}
-
-.page-footer .contact p {
-	font-size: 22px;
-	font-weight: 300;
-	}
-
-.content-3 .glyphicon,
-.page-footer .contact .glyphicon {
-	font-size: 32px;
-	font-weight: 700;
-	}
-
-.page-footer .small-print {
-	padding: 50px 0 40px;
-	font-weight: 300;
-	}
-
 .text-light {
     color: rgba(255,255,255,.7);
 }
@@ -203,7 +179,7 @@ header .header-content .header-content-inner b {
 }
 
 .navbar-default .navbar-header .navbar-brand {
-    color: #5465A0;
+    color: #7289da;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -218,12 +194,12 @@ header .header-content .header-content-inner b {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #5465A0;
+    color: #7289da;
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #5465A0!important;
+    color: #7289da!important;
     background-color: transparent;
 }
 
@@ -267,7 +243,7 @@ header .header-content .header-content-inner b {
 
     .navbar-default.affix .navbar-header .navbar-brand {
         letter-spacing: 0;
-        color: #5465A0;
+        color: #7289da;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
@@ -282,7 +258,7 @@ header .header-content .header-content-inner b {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: #5465A0;
+        color: #7289da;
     }
 }
 
@@ -340,9 +316,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-    border-color: #5465A0;
+    border-color: #7289da;
     color: #fff;
-    background-color: #5465A0;
+    background-color: #7289da;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -354,9 +330,9 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-    border-color: black;
+    border-color: #5465A0;
     color: #fff;
-    background-color: black;
+    background-color: #5465A0;
 }
 
 .btn-primary:active,
@@ -383,12 +359,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: #5465A0;
-    background-color: #5465A0;
+    border-color: #7289da;
+    background-color: #7289da;
 }
 
 .btn-primary .badge {
-    color: #5465A0;
+    color: #7289da;
     background-color: #fff;
 }
 
@@ -425,11 +401,11 @@ img::-moz-selection {
 }
 
 .text-primary {
-    color: #5465A0;
+    color: #7289da;
 }
 
 .bg-primary {
-    background-color: #5465A0;
+    background-color: #7289da;
 }
 
 .header-content {
