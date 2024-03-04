@@ -106,25 +106,23 @@ header .header-content .header-content-inner b {
 
 
 .intro {
-	color: #fff;
-    /*下半部BGColor*/
-    background-color: #7289da;
-    padding: 70px 0;
+	color: #7289da;
+    background-color: #34363a;
+    padding: 40px 0;
     text-align: center;
 }
 
 .intro-body {
-    text-indent: -140px;
-    margin-left: 140px;
+
     text-align: left;
 }
 
 .intro b {
-  color: #CFA2CB;
+  color: #cdd1df;
 }
 
 .content {
-    padding: 100px 0;
+    padding: 60px 0;
 }
 
 .content-2 {
@@ -428,4 +426,38 @@ img::-moz-selection {
     pointer-events: auto
   }
 
-  
+  .footer {
+	display: block;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	padding: 0;
+	margin-top: 4rem;
+	margin-bottom: 2rem;
+	text-align: center;
+	font-size: 1.1em;
+	font-family: rubik, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, pingfang sc, noto sans cjk sc, sarasa gothic sc, microsoft yahei, sans-serif, Apple Color Emoji, Segoe UI Emoji, Varela Round;
+	color: #999
+}
+.footer * {
+	margin: 0 auto;
+	-webkit-margin-before: 0;
+	margin-block-start: 0;
+	-webkit-margin-after: 0;
+	margin-block-end: 0;
+	-webkit-margin-start: 0;
+	-moz-margin-start: 0;
+	margin-inline-start: 0;
+	-webkit-margin-end: 0;
+	-moz-margin-end: 0;
+	margin-inline-end: 0
+}
+.footer a {
+	color: #6b6b6b;
+	text-decoration: none
+}
