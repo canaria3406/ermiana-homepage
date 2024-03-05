@@ -71,6 +71,10 @@ header .header-content .header-content-inner b {
     color: #cdd1df;
 }
 
+section .col-md-6 h2 {
+    font-size: 28px;
+}
+
 @media(min-width:768px) {
     header {
         min-height: 100%;
@@ -96,6 +100,10 @@ header .header-content .header-content-inner b {
         margin-left: auto;
         max-width: 100%;
         font-size: 18px;
+    }
+
+    section .col-md-6 h2 {
+        font-size: 30px;
     }
 }
 
