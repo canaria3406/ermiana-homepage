@@ -190,7 +190,7 @@ section .col-md-6 h2 {
 
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
-    color: #eb3812;
+    color: #ebc312;
 }
 
 .navbar-default .nav > li>a,
@@ -254,7 +254,7 @@ section .col-md-6 h2 {
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
     .navbar-default.affix .navbar-header .navbar-brand:focus {
-        color: #000;
+        color: #ebc312;
     }
 
     .navbar-default.affix .nav > li>a,
