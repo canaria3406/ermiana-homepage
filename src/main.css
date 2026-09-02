@@ -69,7 +69,6 @@ a { color: inherit; text-decoration: none; }
 .typing-bar { height: 42px; margin: 0 18px 18px; padding: 0 13px; display: flex; align-items: center; gap: 8px; color: #6d6f78; border-radius: 9px; background: #383a40; font-size: 13px; }
 .typing-placeholder { min-width: 0; flex: 1; }
 .typing-icon { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; font-size: inherit; line-height: 1; }
-.typing-emoji { transform: translateY(-1px); }
 .float-note { position: absolute; z-index: 3; padding: 10px 13px; display: flex; align-items: center; gap: 7px; border: 1px solid rgba(229,231,239,.8); border-radius: 12px; background: rgba(255,255,255,.88); box-shadow: 0 10px 30px rgba(35,37,63,.12); backdrop-filter: blur(8px); font-size: 12px; font-weight: 750; }
 .float-note span { color: var(--violet); }
 .note-one { top: 15%; right: -28px; transform: rotate(-2deg); }
