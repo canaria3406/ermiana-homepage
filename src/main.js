@@ -1,6 +1,13 @@
-// Offset for Site Navigation
-$('#siteNav').affix({
-    offset: {
-        top: 100
-    }
-})
+const revealItems = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        });
+    }, { threshold: 0.12 });
+    revealItems.forEach((item) => observer.observe(item));
+}
