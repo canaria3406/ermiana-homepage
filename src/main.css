@@ -503,7 +503,7 @@ a {
     letter-spacing: -.035em;
     font-weight: 700;
     text-wrap: balance;
-    font-size: clamp(28px, 2.7vw, 36px);
+    font-size: clamp(28px, 2.7vw, 40px);
 }
 .opensource h2 {
     margin: 0;
