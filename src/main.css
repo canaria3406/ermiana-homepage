@@ -903,6 +903,16 @@ a {
     text-align: center;
     color: var(--content-accent);
 }
+.platform-directory .fa-solid {
+    font-size: 18px;
+}
+.platform-directory .fa-p,
+.platform-directory .fa-m {
+    font-size: 17px;
+}
+.platform-directory .fa-bluesky {
+    font-size: 18px;
+}
 .platforms-footnote {
     display: flex;
     justify-content: space-between;
@@ -1343,6 +1353,14 @@ a {
         flex-basis: 21px;
         font-size: 19px;
         line-height: 21px;
+    }
+    .platform-directory .fa-solid,
+    .platform-directory .fa-bluesky {
+        font-size: 17px;
+    }
+    .platform-directory .fa-p,
+    .platform-directory .fa-m {
+        font-size: 16px;
     }
     .trust {
         padding: 48px 0;
