@@ -697,6 +697,9 @@ a {
 .eyebrow i {
     color: var(--content-accent);
     font-size: inherit;
+    line-height: 1;
+    /* Align the icon's visual center with the adjacent text. */
+    transform: translateY(.08em);
 }
 .button-primary:hover {
     background: var(--theme-aiiro);
