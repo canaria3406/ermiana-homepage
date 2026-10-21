@@ -30,9 +30,21 @@
     </script>
     <link rel="apple-touch-icon" sizes="180x180" href="src/logo/apple-touch-icon-next.png">
     <link rel="icon" type="image/png" sizes="32x32" href="src/logo/favicon-32x32-next.png">
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var theme = null;
+            try { theme = localStorage.getItem('theme'); } catch (e) {}
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            root.setAttribute('data-theme', theme);
+        })();
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="src/main.css?v=5" rel="stylesheet">
-    <script src="src/main.js?v=5" defer></script>
+    <link href="src/main.css?v=10" rel="stylesheet">
+    <script src="src/i18n.js?v=2" defer></script>
+    <script src="src/main.js?v=8" defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKB7TQQ1EG"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -42,31 +54,52 @@
     </script>
 </head>
 <body>
-    <a class="skip-link" href="#main">跳至主要內容</a>
+    <a class="skip-link" href="#main" data-i18n="skip">跳至主要內容</a>
     <header class="site-header" id="top">
-        <a class="brand" href="/" aria-label="ermiana 首頁">
+        <a class="brand" href="/" aria-label="ermiana 首頁" data-i18n-aria="brandHome">
             <svg class="brand-avatar" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
                 <foreignObject x="0" y="0" width="120" height="120"><img src="src/img.webp" class="brand-avatar-image" alt=""></foreignObject>
             </svg>
             <span>ermiana</span>
         </a>
-        <a class="nav-cta" href="https://discord.com/application-directory/1078919650764652594" target="_blank" rel="noreferrer">邀請機器人</a>
+        <div class="header-tools">
+            <div class="header-prefs">
+                <div class="lang-switch" data-lang-switch>
+                    <button class="lang-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="語言：繁中">
+                        <svg class="pref-icon lang-globe" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"></path></svg>
+                        <span class="lang-current" aria-hidden="true">繁中</span>
+                        <svg class="pref-icon lang-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 10l5 5 5-5"></path></svg>
+                    </button>
+                    <ul class="lang-menu" id="lang-menu">
+                        <li><button class="lang-option" type="button" data-lang="zh-Hant" lang="zh-Hant" aria-current="true">繁體中文<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
+                        <li><button class="lang-option" type="button" data-lang="ja" lang="ja">日本語<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
+                        <li><button class="lang-option" type="button" data-lang="en" lang="en">English<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
+                    </ul>
+                </div>
+                <span class="prefs-divider" aria-hidden="true"></span>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="切換深色模式" aria-pressed="false">
+                    <svg class="pref-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg>
+                    <svg class="pref-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"></path></svg>
+                </button>
+            </div>
+            <a class="nav-cta" href="https://discord.com/application-directory/1078919650764652594" target="_blank" rel="noreferrer" data-i18n="navCta">邀請機器人</a>
+        </div>
     </header>
 
     <main id="main">
         <section class="hero section-shell" aria-labelledby="hero-title">
             <div class="hero-copy">
-                <p class="eyebrow"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Discord 認證機器人</p>
-                <h1 id="hero-title">讓你的預覽，<br><span><span class="hero-highlight">豐富精彩</span>。</span></h1>
-                <p class="hero-lede">ermiana 會自動解析分享內容，把失效的圖片、標題和內文重新帶回 Discord。少一次跳轉，多一點順暢的對話。</p>
+                <p class="eyebrow"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span data-i18n="eyebrow">Discord 認證機器人</span></p>
+                <h1 id="hero-title" data-i18n-html="heroTitle">讓你的預覽，<br><span><span class="hero-highlight">不再只是預覽</span>。</span></h1>
+                <p class="hero-lede" data-i18n="heroLede">ermiana 會自動解析分享內容，把失效的圖片、標題和內文重新帶回 Discord。少一次跳轉，多一點順暢的對話。</p>
                 <div class="hero-actions">
-                    <a class="button button-primary" href="https://discord.com/application-directory/1078919650764652594" target="_blank" rel="noreferrer">加入 Discord <span aria-hidden="true">↗</span></a>
-                    <a class="hero-platform-link" href="#platforms">查看支援網站 <span aria-hidden="true">↓</span></a>
+                    <a class="button button-primary" href="https://discord.com/application-directory/1078919650764652594" target="_blank" rel="noreferrer"><span data-i18n="heroCta">加入 Discord</span> <span class="link-arrow" aria-hidden="true">↗</span></a>
+                    <a class="hero-platform-link" href="#platforms"><span data-i18n="heroPlatforms">查看支援網站</span> <span class="link-arrow" aria-hidden="true">↓</span></a>
                 </div>
-                <div class="hero-proof" aria-label="使用規模">
-                    <div><strong>6,000+</strong><span>Discord 伺服器</span></div>
-                    <div><strong>900,000+</strong><span>使用者</span></div>
-                    <div><strong>&lt; 1s</strong><span>平均解析速度</span></div>
+                <div class="hero-proof" aria-label="使用規模" data-i18n-aria="proofLabel">
+                    <div><strong>6,000+</strong><span data-i18n="statServers">Discord 伺服器</span></div>
+                    <div><strong>900,000+</strong><span data-i18n="statUsers">使用者</span></div>
+                    <div><strong>&lt; 1s</strong><span data-i18n="statSpeed">平均解析速度</span></div>
                 </div>
             </div>
 
@@ -103,23 +136,23 @@
         <section class="problem section-shell reveal" aria-labelledby="problem-title">
             <div class="problem-grid">
                 <div class="problem-intro">
-                    <p class="section-label">自動連結預覽</p>
-                    <h2 id="problem-title">貼上連結，<br>內容自然展開。</h2>
-                    <p class="problem-description">不需要點開外部網站。ermiana 會在訊息送出後自動解析連結，將內容整理成 Discord 裡可以直接閱讀的預覽。</p>
+                    <p class="section-label" data-i18n="featLabel">自動連結預覽</p>
+                    <h2 id="problem-title" data-i18n-html="featTitle">貼上連結，<br>內容自然展開。</h2>
+                    <p class="problem-description" data-i18n="featDesc">不需要點開外部網站。ermiana 會在訊息送出後自動解析連結，將內容整理成 Discord 裡可以直接閱讀的預覽。</p>
                     <dl class="preview-benefits">
-                        <div><dt><i class="fa-regular fa-image" aria-hidden="true"></i>標題、內文與圖片</dt><dd>補上原本失效或不完整的網站預覽。</dd></div>
-                        <div><dt><i class="fa-regular fa-comment-dots" aria-hidden="true"></i>維持原本的分享習慣</dt><dd>自動處理支援網站的連結，不必額外輸入指令。</dd></div>
+                        <div><dt><i class="fa-regular fa-image" aria-hidden="true"></i><span data-i18n="benefit1">標題、內文與圖片</span></dt><dd data-i18n="benefit1Desc">補上原本失效或不完整的網站預覽。</dd></div>
+                        <div><dt><i class="fa-regular fa-comment-dots" aria-hidden="true"></i><span data-i18n="benefit2">維持原本的分享習慣</span></dt><dd data-i18n="benefit2Desc">自動處理支援網站的連結，不必額外輸入指令。</dd></div>
                     </dl>
                 </div>
                 <div class="command-panel">
-                    <div class="command-heading"><span class="command-symbol" aria-hidden="true">/</span><div><h3>實用指令與管理工具</h3><p>需要時可以手動進行調整</p></div></div>
+                    <div class="command-heading"><span class="command-symbol" aria-hidden="true">/</span><div><h3 data-i18n="cmdTitle">實用指令與管理工具</h3><p data-i18n="cmdSub">需要時可以手動進行調整</p></div></div>
                     <dl class="command-list">
-                        <div><dt><code>/fix</code></dt><dd><span>手動產生連結預覽</span></dd></div>
-                        <div><dt><code>/check</code></dt><dd><span>檢查頻道與 Bot 權限</span><span class="admin-badge">限管理員</span></dd></div>
-                        <div><dt><code>/banpreview</code></dt><dd><span>開關特定網站的預覽</span><span class="admin-badge">限管理員</span></dd></div>
-                        <div><dt><code>/resetpreview</code></dt><dd><span>恢復所有網站的預覽</span><span class="admin-badge">限管理員</span></dd></div>
+                        <div><dt><code>/fix</code></dt><dd><span data-i18n="cmdFix">手動產生連結預覽</span></dd></div>
+                        <div><dt><code>/check</code></dt><dd><span data-i18n="cmdCheck">檢查頻道與 Bot 權限</span><span class="admin-badge" data-i18n="adminOnly">限管理員</span></dd></div>
+                        <div><dt><code>/banpreview</code></dt><dd><span data-i18n="cmdBan">開關特定網站的預覽</span><span class="admin-badge" data-i18n="adminOnly">限管理員</span></dd></div>
+                        <div><dt><code>/resetpreview</code></dt><dd><span data-i18n="cmdReset">恢復所有網站的預覽</span><span class="admin-badge" data-i18n="adminOnly">限管理員</span></dd></div>
                     </dl>
-                    <p class="command-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>一般分享會自動解析，指令只在需要時使用。</p>
+                    <p class="command-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span data-i18n="cmdNote">一般分享會自動解析，指令只在需要時使用。</span></p>
                 </div>
             </div>
         </section>
@@ -127,13 +160,13 @@
         <section class="platforms section-shell reveal" id="platforms" aria-labelledby="platforms-title">
             <div class="platforms-panel">
                 <div class="platforms-heading">
-                    <div><p class="section-label">支援網站</p><h2 id="platforms-title">你熟悉的網站，都在這裡。</h2></div>
-                    <p>針對台灣與東亞常用平台提供預覽。</p>
+                    <div><p class="section-label" data-i18n="platLabel">支援網站</p><h2 id="platforms-title" data-i18n="platTitle">你熟悉的網站，都在這裡。</h2></div>
+                    <p data-i18n="platDesc">針對台灣與東亞常用平台提供預覽。</p>
                 </div>
-                <ul class="platform-directory" aria-label="支援平台">
+                <ul class="platform-directory" aria-label="支援平台" data-i18n-aria="platAria">
                     <li><i class="fa-solid fa-p" aria-hidden="true"></i>PTT</li>
-                    <li><i class="fa-solid fa-dragon" aria-hidden="true"></i>巴哈姆特</li>
-                    <li><i class="fa-solid fa-drumstick-bite" aria-hidden="true"></i>噗浪</li>
+                    <li><i class="fa-solid fa-dragon" aria-hidden="true"></i><span data-i18n="pBaha">巴哈姆特</span></li>
+                    <li><i class="fa-solid fa-drumstick-bite" aria-hidden="true"></i><span data-i18n="pPlurk">噗浪</span></li>
                     <li><i class="fa-brands fa-x-twitter" aria-hidden="true"></i>Twitter</li>
                     <li><i class="fa-brands fa-pixiv" aria-hidden="true"></i>Pixiv</li>
                     <li><i class="fa-brands fa-facebook" aria-hidden="true"></i>Facebook</li>
@@ -147,21 +180,21 @@
                     <li><i class="fa-solid fa-book" aria-hidden="true"></i>ehentai</li>
                     <li><i class="fa-solid fa-book-atlas" aria-hidden="true"></i>nhentai</li>
                 </ul>
-                <div class="platforms-footnote"><span data-platform-count>支援平台一覽</span><span>支援範圍會隨網站變化持續更新。</span></div>
+                <div class="platforms-footnote"><span data-platform-count>支援平台一覽</span><span data-i18n="platNote">支援範圍會隨網站變化持續更新。</span></div>
             </div>
         </section>
 
         <section class="trust section-shell reveal" aria-labelledby="trust-title">
-            <div class="trust-copy"><p class="section-label">受到廣泛信任</p><h2 id="trust-title">從小群組，<br>到熱鬧的大型社群。</h2><p>管理員可以放心加入，成員幾乎感覺不到他的存在。<br>不需要學習新的操作方式，也不必改變原本分享連結的習慣——只會發現每個連結都變得更完整、更清楚，也更容易閱讀。</p></div>
-            <dl class="community-stats"><div><dt>Discord 伺服器</dt><dd>6,000<span>+</span></dd></div><div><dt>使用者</dt><dd>900,000<span>+</span></dd></div><div><dt>GitHub Stars</dt><dd>60<span>+</span></dd></div></dl>
+            <div class="trust-copy"><p class="section-label" data-i18n="trustLabel">受到廣泛信任</p><h2 id="trust-title" data-i18n-html="trustTitle">從小群組，<br>到熱鬧的大型社群。</h2><p data-i18n-html="trustDesc">管理員可以放心加入，成員幾乎感覺不到他的存在。<br>不需要學習新的操作方式，也不必改變原本分享連結的習慣——只會發現每個連結都變得更完整、更清楚，也更容易閱讀。</p></div>
+            <dl class="community-stats"><div><dt data-i18n="statServers">Discord 伺服器</dt><dd>6,000<span>+</span></dd></div><div><dt data-i18n="statUsers">使用者</dt><dd>900,000<span>+</span></dd></div><div><dt>GitHub Stars</dt><dd>60<span>+</span></dd></div></dl>
         </section>
 
         <section class="opensource section-shell reveal" aria-labelledby="opensource-title">
-            <div class="opensource-copy"><p class="section-label">OPEN SOURCE</p><h2 id="opensource-title">信任，建立在<br>透明與認證之上。</h2><p>開放原始碼、通過 Discord 官方認證，讓信任不只停留在承諾。<br>使用 MIT 授權開放原始碼，並部署於 Google Cloud。從程式碼、平台認證到服務基礎設施，我們選擇用看得見的方式建立信任。</p><a class="text-link" href="https://github.com/canaria3406/ermiana" target="_blank" rel="noreferrer">在 GitHub 查看原始碼 <span aria-hidden="true">↗</span></a></div>
-            <a class="source-card" href="https://github.com/canaria3406/ermiana" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看 ermiana 原始碼">
+            <div class="opensource-copy"><p class="section-label">OPEN SOURCE</p><h2 id="opensource-title" data-i18n-html="osTitle">信任，建立在<br>透明與認證之上。</h2><p data-i18n-html="osDesc">開放原始碼、通過 Discord 官方認證，讓信任不只停留在承諾。<br>使用 MIT 授權開放原始碼，並部署於 Google Cloud。從程式碼、平台認證到服務基礎設施，我們選擇用看得見的方式建立信任。</p><a class="text-link" href="https://github.com/canaria3406/ermiana" target="_blank" rel="noreferrer"><span data-i18n="osLink">在 GitHub 查看原始碼</span> <span class="link-arrow" aria-hidden="true">↗</span></a></div>
+            <a class="source-card" href="https://github.com/canaria3406/ermiana" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看 ermiana 原始碼" data-i18n-aria="osCardAria">
                 <div class="source-card-top"><span class="source-platform"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</span><span class="source-arrow" aria-hidden="true">↗</span></div>
                 <div class="source-card-body"><p class="source-owner">canaria3406 /</p><h3>ermiana</h3><p class="source-summary">A Discord bot that provides better link previews with images and webpage content. Supports popular sites across Taiwan and East Asia.</p></div>
-                <div class="source-card-footer"><span class="source-license"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>MIT License</span><span class="source-action">檢視原始碼 <span aria-hidden="true">→</span></span></div>
+                <div class="source-card-footer"><span class="source-license"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>MIT License</span><span class="source-action"><span data-i18n="osAction">檢視原始碼</span> <span class="link-arrow" aria-hidden="true">→</span></span></div>
             </a>
         </section>
 
@@ -177,23 +210,23 @@
                     </svg>
                     <span>ermiana</span>
                 </a>
-                <p>希望每一則分享，都能好好被看見。</p>
+                <p data-i18n="tagline">希望每一則分享，都能好好被看見。</p>
             </div>
-            <nav class="footer-actions" aria-label="頁尾導覽">
-                <a class="footer-action footer-action-primary" href="https://discord.com/application-directory/1078919650764652594" target="_blank" rel="noreferrer">邀請機器人<span aria-hidden="true">↗</span></a>
+            <nav class="footer-actions" aria-label="頁尾導覽" data-i18n-aria="footerNav">
+                <a class="footer-action footer-action-primary" href="https://discord.com/application-directory/1078919650764652594" target="_blank" rel="noreferrer"><span data-i18n="navCta">邀請機器人</span><span aria-hidden="true">↗</span></a>
                 <a class="footer-action" href="https://github.com/canaria3406/ermiana" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-                <a class="footer-action" href="https://discord.gg/QBwjpHcMyw" target="_blank" rel="noreferrer">支援伺服器 <span aria-hidden="true">↗</span></a>
-                <a class="footer-action" href="https://buymeacoffee.com/canaria" target="_blank" rel="noreferrer">請我喝杯飲料 <span aria-hidden="true">↗</span></a>
+                <a class="footer-action" href="https://discord.gg/QBwjpHcMyw" target="_blank" rel="noreferrer"><span data-i18n="supportServer">支援伺服器</span> <span aria-hidden="true">↗</span></a>
+                <a class="footer-action" href="https://buymeacoffee.com/canaria" target="_blank" rel="noreferrer"><span data-i18n="coffee">請我喝杯飲料</span> <span aria-hidden="true">↗</span></a>
             </nav>
         </div>
         <div class="footer-bottom">
             <p>canaria<span class="footer-at">@</span>2022-2026</p>
             <div class="footer-meta">
                 <div class="footer-legal">
-                    <a href="https://github.com/canaria3406/ermiana/blob/master/doc/privacy-policy-zh_tw.md" target="_blank" rel="noreferrer">隱私權政策</a>
-                    <a href="https://github.com/canaria3406/ermiana/blob/master/doc/terms-of-service-zh_tw.md" target="_blank" rel="noreferrer">服務條款</a>
-                    <a href="https://status.ermiana.canaria.cc/" target="_blank" rel="noreferrer">服務狀態</a>
-                    <a href="https://github.com/canaria3406/ermiana/issues" target="_blank" rel="noreferrer">問題回報</a>
+                    <a href="https://github.com/canaria3406/ermiana/blob/master/doc/privacy-policy-zh_tw.md" target="_blank" rel="noreferrer" data-i18n="privacy">隱私權政策</a>
+                    <a href="https://github.com/canaria3406/ermiana/blob/master/doc/terms-of-service-zh_tw.md" target="_blank" rel="noreferrer" data-i18n="terms">服務條款</a>
+                    <a href="https://status.ermiana.canaria.cc/" target="_blank" rel="noreferrer" data-i18n="status">服務狀態</a>
+                    <a href="https://github.com/canaria3406/ermiana/issues" target="_blank" rel="noreferrer" data-i18n="issues">問題回報</a>
                 </div>
             </div>
         </div>
