@@ -1422,9 +1422,7 @@ a {
         height: 38px;
     }
     .nav-cta {
-        height: 40px;
-        padding: 0 12px;
-        font-size: 12px;
+        display: none;
     }
     .site-header {
         gap: 10px;
@@ -1646,12 +1644,6 @@ a {
     }
     .source-card h3 {
         font-size: 32px;
-    }
-}
-
-@media (max-width: 389px) {
-    .site-header .brand > span {
-        display: none;
     }
 }
 
