@@ -42,8 +42,8 @@
         })();
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="src/main.css?v=11" rel="stylesheet">
-    <script src="src/i18n.js?v=2" defer></script>
+    <link href="src/main.css?v=12" rel="stylesheet">
+    <script src="src/i18n.js?v=3" defer></script>
     <script src="src/main.js?v=8" defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKB7TQQ1EG"></script>
     <script>
@@ -93,31 +93,31 @@
                 <h1 id="hero-title" data-i18n-html="heroTitle">讓你的預覽，<br><span><span class="hero-highlight">不再只是預覽</span>。</span></h1>
                 <p class="hero-lede" data-i18n="heroLede">ermiana 會自動解析分享內容，把失效的圖片、標題和內文重新帶回 Discord。少一次跳轉，多一點順暢的對話。</p>
                 <div class="hero-actions">
-                    <a class="button button-primary" href="https://discord.com/application-directory/1078919650764652594" target="_blank" rel="noreferrer"><span data-i18n="heroCta">加入 Discord</span> <span class="link-arrow" aria-hidden="true">↗</span></a>
+                    <a class="button button-primary" href="https://discord.com/application-directory/1078919650764652594" target="_blank" rel="noreferrer"><span data-i18n="heroCta">邀請機器人</span> <span class="link-arrow" aria-hidden="true">↗</span></a>
                     <a class="hero-platform-link" href="#platforms"><span data-i18n="heroPlatforms">查看支援網站</span> <span class="link-arrow" aria-hidden="true">↓</span></a>
                 </div>
                 <div class="hero-proof" aria-label="使用規模" data-i18n-aria="proofLabel">
                     <div><strong>6,000+</strong><span data-i18n="statServers">Discord 伺服器</span></div>
-                    <div><strong>900,000+</strong><span data-i18n="statUsers">使用者</span></div>
-                    <div><strong>&lt; 1s</strong><span data-i18n="statSpeed">平均解析速度</span></div>
+                    <div><strong>1,000,000+</strong><span data-i18n="statUsers">使用者</span></div>
+                    <div><strong>&lt; 1s</strong><span data-i18n="statSpeed">平均解析時間</span></div>
                 </div>
             </div>
 
-            <div class="preview-stage" id="preview" aria-label="ermiana 在 Discord 內的預覽示意">
+            <div class="preview-stage" id="preview" aria-label="ermiana 在 Discord 內的預覽示意" data-i18n-aria="previewAria">
                 <div class="preview-glow"></div>
                 <div class="discord-window">
-                    <div class="window-bar"><span class="window-channel">好圖分享</span><div class="window-actions" aria-hidden="true"><span></span><span></span><span></span></div></div>
+                    <div class="window-bar"><span class="window-channel" data-i18n="previewChannel">好圖分享</span><div class="window-actions" aria-hidden="true"><span></span><span></span><span></span></div></div>
                     <div class="message-row">
                         <div class="avatar avatar-user" aria-hidden="true"><img src="pic/canaria.webp" alt=""></div>
                         <div class="message-content">
-                            <p class="message-meta"><strong>かなりあ</strong><time>今天 20:24</time></p>
+                            <p class="message-meta"><strong>かなりあ</strong><time><span data-i18n="previewToday">今天</span> 20:24</time></p>
                             <p>好耶しずく☂️<br><a class="raw-link" href="https://x.com/orihi_/status/1775408946423206025" target="_blank" rel="noreferrer">https://x.com/orihi_/status/1775408946423206025</a></p>
                         </div>
                     </div>
                     <div class="message-row bot-row">
                         <div class="avatar avatar-bot" aria-hidden="true"><img src="src/img.webp" alt=""></div>
                         <div class="message-content">
-                            <p class="message-meta"><strong>ermiana</strong><span class="bot-tag" aria-label="已驗證的應用程式"><span aria-hidden="true">✓</span> APP</span><time>今天 20:24</time></p>
+                            <p class="message-meta"><strong>ermiana</strong><span class="bot-tag" aria-label="已驗證的應用程式" data-i18n-aria="previewVerifiedApp"><span aria-hidden="true">✓</span> APP</span><time><span data-i18n="previewToday">今天</span> 20:24</time></p>
                             <div class="embed-card">
                                 <div class="embed-source"><img class="embed-author-avatar" src="https://pbs.twimg.com/profile_images/1409473759631732737/xTAqrarc_400x400.jpg" alt="" referrerpolicy="no-referrer"> @orihi_</div>
                                 <h3><a href="https://x.com/orihi_/status/1775408946423206025" target="_blank" rel="noreferrer">織日ちひろ</a></h3>
@@ -127,10 +127,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="typing-bar"><i class="typing-icon fa-solid fa-plus" aria-hidden="true"></i><span class="typing-placeholder">傳訊息到 #好圖分享</span><i class="typing-icon fa-regular fa-face-smile" aria-hidden="true"></i></div>
+                    <div class="typing-bar"><i class="typing-icon fa-solid fa-plus" aria-hidden="true"></i><span class="typing-placeholder" data-i18n="previewMessagePlaceholder">傳訊息到 #好圖分享</span><i class="typing-icon fa-regular fa-face-smile" aria-hidden="true"></i></div>
                 </div>
-                <div class="float-note note-one"><span>✓</span> 自動解析</div>
-                <div class="float-note note-two"><span>↗</span> 顯示更多資訊</div>
+                <div class="float-note note-one"><span aria-hidden="true">✓</span><span data-i18n="previewAuto">自動解析</span></div>
+                <div class="float-note note-two"><span aria-hidden="true">↗</span><span data-i18n="previewMoreInfo">顯示更多資訊</span></div>
             </div>
         </section>
         <section class="problem section-shell reveal" aria-labelledby="problem-title">
@@ -185,8 +185,8 @@
         </section>
 
         <section class="trust section-shell reveal" aria-labelledby="trust-title">
-            <div class="trust-copy"><p class="section-label" data-i18n="trustLabel">受到廣泛信任</p><h2 id="trust-title" data-i18n-html="trustTitle">從小群組，<br>到熱鬧的大型社群。</h2><p data-i18n-html="trustDesc">管理員可以放心加入，成員幾乎感覺不到他的存在。<br>不需要學習新的操作方式，也不必改變原本分享連結的習慣——只會發現每個連結都變得更完整、更清楚，也更容易閱讀。</p></div>
-            <dl class="community-stats"><div><dt data-i18n="statServers">Discord 伺服器</dt><dd>6,000<span>+</span></dd></div><div><dt data-i18n="statUsers">使用者</dt><dd>900,000<span>+</span></dd></div><div><dt>GitHub Stars</dt><dd>60<span>+</span></dd></div></dl>
+            <div class="trust-copy"><p class="section-label" data-i18n="trustLabel">受到廣泛信任</p><h2 id="trust-title" data-i18n-html="trustTitle">從小群組，<br>到熱鬧的大型社群。</h2><p data-i18n-html="trustDesc">管理員可以放心邀請，成員幾乎感覺不到他的存在。<br>不需要學習新的操作方式，也不必改變原本分享連結的習慣——只會發現每個連結的預覽都變得更完整、更清楚，也更容易閱讀。</p></div>
+            <dl class="community-stats"><div><dt data-i18n="statServers">Discord 伺服器</dt><dd>6,000<span>+</span></dd></div><div><dt data-i18n="statUsers">使用者</dt><dd>1,000,000<span>+</span></dd></div><div><dt>GitHub Stars</dt><dd>60<span>+</span></dd></div></dl>
         </section>
 
         <section class="opensource section-shell reveal" aria-labelledby="opensource-title">

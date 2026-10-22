@@ -685,7 +685,7 @@ a {
     font-size: 12px;
     font-weight: 750;
 }
-.float-note span {
+.float-note > span[aria-hidden="true"] {
     color: var(--violet);
 }
 .note-one {
