@@ -34,17 +34,48 @@
         (function () {
             var root = document.documentElement;
             var theme = null;
+            var language = null;
+            var languageMap = {
+                'zh-hant': 'zh-Hant', 'zh-tw': 'zh-Hant', 'zh-hk': 'zh-Hant', 'zh-mo': 'zh-Hant',
+                'zh-hans': 'zh-Hans', 'zh-cn': 'zh-Hans', 'zh-sg': 'zh-Hans', 'zh-my': 'zh-Hans',
+                'ja': 'ja', 'en': 'en'
+            };
+            function normalizeLanguage(value) {
+                var tag = String(value || '').toLowerCase().replace(/_/g, '-');
+                if (languageMap[tag]) return languageMap[tag];
+                if (tag.indexOf('zh-hant') === 0) return 'zh-Hant';
+                if (tag.indexOf('zh-hans') === 0) return 'zh-Hans';
+                if (tag.indexOf('zh-') === 0 || tag === 'zh') {
+                    return /(^|-)(cn|sg|my)(-|$)/.test(tag) ? 'zh-Hans' : 'zh-Hant';
+                }
+                if (tag.indexOf('ja-') === 0) return 'ja';
+                if (tag.indexOf('en-') === 0) return 'en';
+                return null;
+            }
             try { theme = localStorage.getItem('theme'); } catch (e) {}
             if (theme !== 'light' && theme !== 'dark') {
                 theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             }
             root.setAttribute('data-theme', theme);
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#121315' : '#f5f8fa');
+
+            try {
+                language = normalizeLanguage(new URLSearchParams(window.location.search).get('lang'));
+                if (!language) language = normalizeLanguage(localStorage.getItem('lang'));
+            } catch (e) {}
+            if (!language) {
+                var preferred = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+                for (var i = 0; i < preferred.length && !language; i += 1) language = normalizeLanguage(preferred[i]);
+                if (!language) language = preferred.some(function (value) { return Boolean(value); }) ? 'en' : 'zh-Hant';
+            }
+            root.setAttribute('lang', language);
+            window.ERMIANA_INITIAL_LANG = language;
         })();
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="src/main.css?v=12" rel="stylesheet">
-    <script src="src/i18n.js?v=3" defer></script>
-    <script src="src/main.js?v=8" defer></script>
+    <link href="src/main.css?v=13" rel="stylesheet">
+    <script src="src/i18n.js?v=4" defer></script>
+    <script src="src/main.js?v=9" defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKB7TQQ1EG"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -72,6 +103,7 @@
                     </button>
                     <ul class="lang-menu" id="lang-menu">
                         <li><button class="lang-option" type="button" data-lang="zh-Hant" lang="zh-Hant" aria-current="true">繁體中文<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
+                        <li><button class="lang-option" type="button" data-lang="zh-Hans" lang="zh-Hans">简体中文<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
                         <li><button class="lang-option" type="button" data-lang="ja" lang="ja">日本語<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
                         <li><button class="lang-option" type="button" data-lang="en" lang="en">English<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
                     </ul>

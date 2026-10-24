@@ -15,8 +15,8 @@ const storage = {
 /* ---------- i18n ---------- */
 const DEFAULT_LANG = 'zh-Hant';
 const dictionaries = window.ERMIANA_I18N || {};
-const supportedLangs = [DEFAULT_LANG, 'ja', 'en'];
-const LANG_SHORT = { 'zh-Hant': '繁中', ja: '日本語', en: 'EN' };
+const supportedLangs = [DEFAULT_LANG, 'zh-Hans', 'ja', 'en'];
+const LANG_SHORT = { 'zh-Hant': '繁中', 'zh-Hans': '简中', ja: '日本語', en: 'EN' };
 const langSwitch = document.querySelector('[data-lang-switch]');
 const langTrigger = langSwitch ? langSwitch.querySelector('.lang-trigger') : null;
 const langCurrent = langSwitch ? langSwitch.querySelector('.lang-current') : null;
@@ -33,12 +33,14 @@ document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
 });
 
 function detectLang() {
+    if (supportedLangs.includes(window.ERMIANA_INITIAL_LANG)) return window.ERMIANA_INITIAL_LANG;
     const fromQuery = new URLSearchParams(window.location.search).get('lang');
     if (supportedLangs.includes(fromQuery)) return fromQuery;
     const stored = storage.get('lang');
     if (supportedLangs.includes(stored)) return stored;
     const preferred = (navigator.languages && navigator.languages[0]) || navigator.language || '';
     if (/^ja/i.test(preferred)) return 'ja';
+    if (/^zh-(Hans|CN|SG|MY)/i.test(preferred)) return 'zh-Hans';
     if (/^zh/i.test(preferred)) return DEFAULT_LANG;
     return preferred ? 'en' : DEFAULT_LANG;
 }

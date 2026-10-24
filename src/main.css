@@ -100,6 +100,9 @@ body {
 html[lang="ja"] body {
     font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", Meiryo, sans-serif;
 }
+html[lang="zh-Hans"] body {
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
 a {
     color: inherit;
     text-decoration: none;
