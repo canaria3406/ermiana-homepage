@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" data-langs="zh-Hant zh-Hans ja en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,52 +30,12 @@
     </script>
     <link rel="apple-touch-icon" sizes="180x180" href="src/logo/apple-touch-icon-next.png">
     <link rel="icon" type="image/png" sizes="32x32" href="src/logo/favicon-32x32-next.png">
-    <script>
-        (function () {
-            var root = document.documentElement;
-            var theme = null;
-            var language = null;
-            var languageMap = {
-                'zh-hant': 'zh-Hant', 'zh-tw': 'zh-Hant', 'zh-hk': 'zh-Hant', 'zh-mo': 'zh-Hant',
-                'zh-hans': 'zh-Hans', 'zh-cn': 'zh-Hans', 'zh-sg': 'zh-Hans', 'zh-my': 'zh-Hans',
-                'ja': 'ja', 'en': 'en'
-            };
-            function normalizeLanguage(value) {
-                var tag = String(value || '').toLowerCase().replace(/_/g, '-');
-                if (languageMap[tag]) return languageMap[tag];
-                if (tag.indexOf('zh-hant') === 0) return 'zh-Hant';
-                if (tag.indexOf('zh-hans') === 0) return 'zh-Hans';
-                if (tag.indexOf('zh-') === 0 || tag === 'zh') {
-                    return /(^|-)(cn|sg|my)(-|$)/.test(tag) ? 'zh-Hans' : 'zh-Hant';
-                }
-                if (tag.indexOf('ja-') === 0) return 'ja';
-                if (tag.indexOf('en-') === 0) return 'en';
-                return null;
-            }
-            try { theme = localStorage.getItem('theme'); } catch (e) {}
-            if (theme !== 'light' && theme !== 'dark') {
-                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-            root.setAttribute('data-theme', theme);
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#121315' : '#f5f8fa');
-
-            try {
-                language = normalizeLanguage(new URLSearchParams(window.location.search).get('lang'));
-                if (!language) language = normalizeLanguage(localStorage.getItem('lang'));
-            } catch (e) {}
-            if (!language) {
-                var preferred = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
-                for (var i = 0; i < preferred.length && !language; i += 1) language = normalizeLanguage(preferred[i]);
-                if (!language) language = preferred.some(function (value) { return Boolean(value); }) ? 'en' : 'zh-Hant';
-            }
-            root.setAttribute('lang', language);
-            window.ERMIANA_INITIAL_LANG = language;
-        })();
-    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="src/main.css?v=13" rel="stylesheet">
+    <link rel="stylesheet" href="https://canaria.cc/canaria.css?v=1">
+    <link href="src/main.css?v=14" rel="stylesheet">
+    <script src="https://canaria.cc/canaria.js?v=1"></script>
     <script src="src/i18n.js?v=5" defer></script>
-    <script src="src/main.js?v=9" defer></script>
+    <script src="src/main.js?v=10" defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKB7TQQ1EG"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -96,16 +56,16 @@
         <div class="header-tools">
             <div class="header-prefs">
                 <div class="lang-switch" data-lang-switch>
-                    <button class="lang-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="語言：繁中">
+                    <button class="lang-trigger" type="button" aria-expanded="false" aria-controls="lang-menu" aria-label="語言：繁中">
                         <svg class="pref-icon lang-globe" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"></path></svg>
                         <span class="lang-current" aria-hidden="true">繁中</span>
                         <svg class="pref-icon lang-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 10l5 5 5-5"></path></svg>
                     </button>
                     <ul class="lang-menu" id="lang-menu">
-                        <li><button class="lang-option" type="button" data-lang="zh-Hant" lang="zh-Hant" aria-current="true">繁體中文<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
-                        <li><button class="lang-option" type="button" data-lang="zh-Hans" lang="zh-Hans">简体中文<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
-                        <li><button class="lang-option" type="button" data-lang="ja" lang="ja">日本語<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
-                        <li><button class="lang-option" type="button" data-lang="en" lang="en">English<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
+                        <li><button class="lang-option" type="button" data-lang="zh-Hant" data-short="繁中" lang="zh-Hant" aria-current="true">繁體中文<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
+                        <li><button class="lang-option" type="button" data-lang="zh-Hans" data-short="简中" lang="zh-Hans">简体中文<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
+                        <li><button class="lang-option" type="button" data-lang="ja" data-short="日本語" lang="ja">日本語<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
+                        <li><button class="lang-option" type="button" data-lang="en" data-short="EN" lang="en">English<svg class="pref-icon lang-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></li>
                     </ul>
                 </div>
                 <span class="prefs-divider" aria-hidden="true"></span>
@@ -128,7 +88,7 @@
                     <a class="button button-primary" href="https://discord.com/application-directory/1078919650764652594" target="_blank" rel="noreferrer"><span data-i18n="heroCta">邀請機器人</span> <span class="link-arrow" aria-hidden="true">↗</span></a>
                     <a class="hero-platform-link" href="#platforms"><span data-i18n="heroPlatforms">查看支援網站</span> <span class="link-arrow" aria-hidden="true">↓</span></a>
                 </div>
-                <div class="hero-proof" aria-label="使用規模" data-i18n-aria="proofLabel">
+                <div class="hero-proof ui-stats ui-stats--tile" aria-label="使用規模" data-i18n-aria="proofLabel">
                     <div><strong>6,000+</strong><span data-i18n="statServers">Discord 伺服器</span></div>
                     <div><strong>1,000,000+</strong><span data-i18n="statUsers">使用者</span></div>
                     <div><strong>&lt; 1s</strong><span data-i18n="statSpeed">平均解析時間</span></div>
@@ -176,7 +136,7 @@
                         <div><dt><i class="fa-regular fa-comment-dots" aria-hidden="true"></i><span data-i18n="benefit2">維持原本的分享習慣</span></dt><dd data-i18n="benefit2Desc">自動處理支援網站的連結，不必額外輸入指令。</dd></div>
                     </dl>
                 </div>
-                <div class="command-panel">
+                <div class="command-panel ui-panel">
                     <div class="command-heading"><span class="command-symbol" aria-hidden="true">/</span><div><h3 data-i18n="cmdTitle">實用指令與管理工具</h3><p data-i18n="cmdSub">需要時可以手動進行調整</p></div></div>
                     <dl class="command-list">
                         <div><dt><code>/fix</code></dt><dd><span data-i18n="cmdFix">手動產生連結預覽</span></dd></div>
@@ -190,7 +150,7 @@
         </section>
 
         <section class="platforms section-shell reveal" id="platforms" aria-labelledby="platforms-title">
-            <div class="platforms-panel">
+            <div class="platforms-panel ui-panel">
                 <div class="platforms-heading">
                     <div><p class="section-label" data-i18n="platLabel">支援網站</p><h2 id="platforms-title" data-i18n="platTitle">你熟悉的網站，都在這裡。</h2></div>
                     <p data-i18n="platDesc">針對台灣與東亞常用平台提供預覽。</p>
@@ -219,12 +179,12 @@
 
         <section class="trust section-shell reveal" aria-labelledby="trust-title">
             <div class="trust-copy"><p class="section-label" data-i18n="trustLabel">受到廣泛信任</p><h2 id="trust-title" data-i18n-html="trustTitle">從小群組，<br>到熱鬧的大型社群。</h2><p data-i18n-html="trustDesc">管理員可以放心邀請，成員幾乎感覺不到他的存在。<br>不需要學習新的操作方式，也不必改變原本分享連結的習慣——只會發現每個連結的預覽都變得更完整、更清楚，也更容易閱讀。</p></div>
-            <dl class="community-stats"><div><dt data-i18n="statServers">Discord 伺服器</dt><dd>6,000<span>+</span></dd></div><div><dt data-i18n="statUsers">使用者</dt><dd>1,000,000<span>+</span></dd></div><div><dt>GitHub Stars</dt><dd>60<span>+</span></dd></div></dl>
+            <dl class="community-stats ui-stats ui-stats--large"><div><dt data-i18n="statServers">Discord 伺服器</dt><dd>6,000<span>+</span></dd></div><div><dt data-i18n="statUsers">使用者</dt><dd>1,000,000<span>+</span></dd></div><div><dt>GitHub Stars</dt><dd>60<span>+</span></dd></div></dl>
         </section>
 
         <section class="opensource section-shell reveal" aria-labelledby="opensource-title">
             <div class="opensource-copy"><p class="section-label">OPEN SOURCE</p><h2 id="opensource-title" data-i18n-html="osTitle">信任，建立在<br>透明與認證之上。</h2><p data-i18n-html="osDesc">開放原始碼、通過 Discord 官方認證，讓信任不只停留在承諾。<br>使用 MIT 授權開放原始碼，並部署於 Google Cloud。從程式碼、平台認證到服務基礎設施，我們選擇用看得見的方式建立信任。</p><a class="text-link" href="https://github.com/canaria3406/ermiana" target="_blank" rel="noreferrer"><span data-i18n="osLink">在 GitHub 查看原始碼</span> <span class="link-arrow" aria-hidden="true">↗</span></a></div>
-            <a class="source-card" href="https://github.com/canaria3406/ermiana" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看 ermiana 原始碼" data-i18n-aria="osCardAria">
+            <a class="source-card ui-panel" href="https://github.com/canaria3406/ermiana" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看 ermiana 原始碼" data-i18n-aria="osCardAria">
                 <div class="source-card-top"><span class="source-platform"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</span><span class="source-arrow" aria-hidden="true">↗</span></div>
                 <div class="source-card-body"><p class="source-owner">canaria3406 /</p><h3>ermiana</h3><p class="source-summary">A Discord bot that provides better link previews with images and webpage content. Supports popular sites across Taiwan and East Asia.</p></div>
                 <div class="source-card-footer"><span class="source-license"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>MIT License</span><span class="source-action"><span data-i18n="osAction">檢視原始碼</span> <span class="link-arrow" aria-hidden="true">→</span></span></div>
@@ -233,7 +193,7 @@
 
     </main>
 
-    <footer class="site-footer section-shell">
+    <footer class="site-footer">
         <div class="footer-main">
             <div class="footer-brand">
                 <a class="brand" href="/">
