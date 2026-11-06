@@ -93,6 +93,10 @@
     --ui-line: var(--theme-line);
     --ui-divider: var(--line);
     --ui-glass: var(--theme-glass);
+    --ui-ink: var(--theme-konjyo);
+    --ui-accent-ink: var(--theme-seiran);
+    --ui-line-strong: var(--theme-line-strong);
+    --ui-tint: var(--theme-tint);
     --ui-menu-bg: var(--theme-menu-bg);
     --ui-menu-shadow: var(--theme-menu-shadow);
     --ui-pref-bg: var(--theme-pref-bg);
@@ -127,18 +131,15 @@
     --ui-footer-blur: none;
     --ui-stats-tile-bg: var(--theme-glass-soft);
     --ui-stats-tile-inset: var(--theme-inset-soft);
-    --ui-stats-accent: var(--theme-seiran);
     --ui-skip-bg: var(--theme-skip-bg);
     --ui-skip-ink: var(--theme-on-button);
 }
 html {
     overflow-x: clip;
 }
+/* Font family and rhythm come from canaria.css. */
 body {
     color: var(--ink);
-    font-family: var(--ui-font);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
     background: radial-gradient(circle at 7% 8%, var(--theme-glow), transparent 28rem), var(--theme-paper);
 }
 /* Skip link: ermiana keeps its own position and shape. */
@@ -485,14 +486,8 @@ body {
     bottom: 12%;
     transform: rotate(2deg);
 }
-.section-label {
-    margin: 0 0 15px;
-    text-transform: uppercase;
-    color: var(--theme-seiran);
-    font-size: 12px;
-    font-weight: 650;
-    letter-spacing: .06em;
-}
+/* Section labels, headings, ledes, text links, badges and icon tiles use canaria.css's
+   .ui-label, .ui-heading, .ui-lede, .ui-text-link, .ui-badge and .ui-icon. */
 .problem {
     border-top: 1px solid var(--theme-line);
     color: var(--theme-konjyo);
@@ -504,29 +499,8 @@ body {
     align-items: center;
     gap: 80px;
 }
-.problem h2 {
-    margin: 0;
-    font-size: clamp(28px, 3.1vw, 40px);
-    line-height: 1.4;
-    letter-spacing: -.035em;
-    font-weight: 700;
-    text-wrap: balance;
-}
-.trust h2 {
-    margin: 0;
-    line-height: 1.4;
-    letter-spacing: -.035em;
-    font-weight: 700;
-    text-wrap: balance;
+.trust .ui-heading {
     font-size: clamp(28px, 2.7vw, 40px);
-}
-.opensource h2 {
-    margin: 0;
-    font-size: clamp(28px, 3.1vw, 40px);
-    line-height: 1.4;
-    letter-spacing: -.035em;
-    font-weight: 700;
-    text-wrap: balance;
 }
 .platforms {
     color: var(--theme-konjyo);
@@ -542,13 +516,6 @@ body {
     gap: 80px;
     align-items: center;
 }
-.trust-copy > p:not(.section-label) {
-    max-width: 465px;
-    margin: 22px 0 0;
-    color: var(--theme-muted);
-    font-size: 15px;
-    line-height: 1.9;
-}
 .opensource {
     display: grid;
     align-items: center;
@@ -560,31 +527,8 @@ body {
     border-radius: 0;
     background: transparent;
 }
-.opensource-copy > p:not(.section-label) {
-    max-width: 465px;
-    margin: 22px 0;
-    color: var(--theme-muted);
-    font-size: 15px;
-    line-height: 1.9;
-}
-.text-link {
-    display: inline-flex;
-    gap: 10px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid var(--theme-line-strong);
-    align-items: center;
-    color: var(--theme-seiran);
-    font-size: 13px;
-    font-weight: 600;
-}
-.js .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .7s ease, transform .7s cubic-bezier(.2,.75,.25,1);
-}
-.js .reveal.is-visible {
-    opacity: 1;
-    transform: none;
+.opensource .ui-lede {
+    margin-bottom: 22px;
 }
 .hero-copy {
     color: var(--theme-konjyo);
@@ -610,20 +554,8 @@ body {
 .hero-platform-link:hover {
     color: var(--theme-seiran);
 }
-.platforms h2 {
-    margin: 0;
-    line-height: 1.4;
-    letter-spacing: -.035em;
-    font-weight: 700;
-    text-wrap: balance;
+.platforms .ui-heading {
     font-size: clamp(26px, 2.6vw, 34px);
-}
-.problem-description {
-    max-width: 465px;
-    margin: 22px 0 0;
-    color: var(--theme-muted);
-    font-size: 15px;
-    line-height: 1.9;
 }
 .preview-benefits {
     margin: 28px 0 0;
@@ -669,15 +601,6 @@ body {
     padding-bottom: 24px;
 }
 .command-symbol {
-    width: 40px;
-    height: 40px;
-    flex: 0 0 auto;
-    display: grid;
-    place-items: center;
-    border: 1px solid var(--theme-line);
-    border-radius: 10px;
-    color: var(--theme-seiran);
-    background: var(--theme-tint);
     font: 500 24px/1 ui-monospace, Consolas, monospace;
 }
 .command-heading h3 {
@@ -714,14 +637,6 @@ body {
     gap: 5px 10px;
     color: var(--theme-muted);
     font-size: 12px;
-}
-.admin-badge {
-    padding: 2px 5px;
-    border: 1px solid var(--theme-line);
-    border-radius: 4px;
-    color: var(--theme-muted);
-    font-size: 10px;
-    white-space: nowrap;
 }
 .command-note {
     display: flex;
@@ -817,9 +732,6 @@ body {
 }
 .community-stats {
     grid-template-columns: 1fr 1.3fr .75fr;
-}
-.text-link:hover {
-    border-color: var(--theme-seiran);
 }
 .source-card {
     min-width: 0;
@@ -982,12 +894,6 @@ body {
         grid-template-columns: 1fr 1fr;
         gap: 32px;
     }
-    .problem h2 {
-        font-size: 30px;
-    }
-    .opensource h2 {
-        font-size: 30px;
-    }
     .command-list > div {
         grid-template-columns: 1fr;
         gap: 6px;
@@ -1077,15 +983,6 @@ body {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    .problem h2 {
-        font-size: 28px;
-    }
-    .opensource h2 {
-        font-size: 28px;
-    }
-    .problem-description {
-        font-size: 14px;
-    }
     .command-panel {
         padding: 22px 20px;
     }
@@ -1110,7 +1007,7 @@ body {
     .platforms-heading {
         margin-bottom: 24px;
     }
-    .platforms h2 {
+    .platforms .ui-heading {
         font-size: 26px;
     }
     .platforms-heading > p {
@@ -1150,11 +1047,8 @@ body {
         padding: 48px 0;
         gap: 26px;
     }
-    .trust h2 {
+    .trust .ui-heading {
         font-size: 26px;
-    }
-    .trust-copy > p:not(.section-label) {
-        font-size: 14px;
     }
     .community-stats {
         grid-template-columns: 1fr 1.3fr .65fr;
@@ -1168,9 +1062,6 @@ body {
     }
     .community-stats dt {
         font-size: 10px;
-    }
-    .opensource-copy > p:not(.section-label) {
-        font-size: 14px;
     }
     .source-card h3 {
         font-size: 32px;
