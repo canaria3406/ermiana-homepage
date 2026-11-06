@@ -1,25 +1,36 @@
 <!doctype html>
 <html lang="zh-Hant" data-langs="zh-Hant zh-Hans ja en">
 <head>
+    <!-- Document metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f5f8fa">
+    <title>ermiana</title>
     <meta name="description" content="ermiana 會自動解析分享內容，把失效的圖片、標題和內文重新帶回 Discord。少一次跳轉，多一點順暢的對話。">
+    <meta name="theme-color" content="#f5f8fa">
+    <link rel="canonical" href="https://ermiana.canaria.cc/">
+    <!-- Social previews -->
+    <meta property="og:type" content="website">
     <meta property="og:site_name" content="canaria.cc">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:url" content="https://ermiana.canaria.cc/">
     <meta property="og:title" content="ermiana">
     <meta property="og:description" content="希望每一則分享，都能好好被看見。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ermiana.canaria.cc/">
     <meta property="og:image" content="https://ermiana.canaria.cc/src/logo/og.png">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="希望每一則分享，都能好好被看見。">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="canaria.cc">
     <meta name="twitter:title" content="ermiana">
     <meta name="twitter:description" content="希望每一則分享，都能好好被看見。">
     <meta name="twitter:image" content="https://ermiana.canaria.cc/src/logo/og.png">
-    <title>ermiana</title>
-    <link rel="canonical" href="https://ermiana.canaria.cc/">
+    <meta name="twitter:image:alt" content="希望每一則分享，都能好好被看見。">
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="16x16" href="src/logo/favicon-16x16-next.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/logo/favicon-32x32-next.png">
+    <link rel="apple-touch-icon" href="src/logo/apple-touch-icon-next.png">
+    <!-- Structured data -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -28,14 +39,15 @@
             "url": "https://ermiana.canaria.cc/"
         }
     </script>
-    <link rel="apple-touch-icon" sizes="180x180" href="src/logo/apple-touch-icon-next.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="src/logo/favicon-32x32-next.png">
+    <!-- Styles: vendor, shared UI, then page overrides. -->
+    <link rel="stylesheet" href="https://canaria.cc/canaria.css?v=2">
+    <link rel="stylesheet" href="src/main.css?v=15">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="https://canaria.cc/canaria.css?v=1">
-    <link href="src/main.css?v=15" rel="stylesheet">
-    <script src="https://canaria.cc/canaria.js?v=1"></script>
+    <!-- Set the theme and language before paint; defer translations before the page script. -->
+    <script src="https://canaria.cc/canaria.js?v=2"></script>
     <script src="src/i18n.js?v=5" defer></script>
     <script src="src/main.js?v=11" defer></script>
+    <!-- Analytics: initialize the queue before loading the independent async script. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKB7TQQ1EG"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
